@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 
-data = pd.read_csv('ex1data1.txt', header = None, names = ['population', 'profit'])
+data = pd.read_csv('LR_1D.txt', header = None, names = ['population', 'profit'])
 data = data.as_matrix()
 
 X = []
@@ -32,11 +32,11 @@ w = (X.dot(Y) - Y.mean() * X.sum()) / denominator
 b = (Y.mean() * X.dot(X) - X.mean() * X.dot(Y)) / denominator
 
 
-Yhat = w*X + b
+Yhat = w * X + b
 
 #Visualization with line
 plt.scatter(X,Y)
-plt.plot(X,Yhat, c='r' )
+plt.plot(X,Yhat, c='r')
 plt.xlim(4,24)
 plt.xlabel('Population of city in 10,000s')
 plt.ylabel('Profit in $10,000s')
@@ -64,5 +64,8 @@ regr.fit(X,Y)
 
 plt.scatter(X,Y)
 xx = np.arange(5,24)
-plt.plot(xx,regr.coef_*xx + regr.intercept_)
+plt.plot(xx,regr.coef_*xx + regr.intercept_, c='r')
+plt.xlim(4,24)
+plt.xlabel('Population of city in 10,000s')
+plt.ylabel('Profit in $10,000s')
 plt.show()
